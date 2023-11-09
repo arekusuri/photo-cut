@@ -21,8 +21,8 @@ function centerAspectCrop(
   return centerCrop(
     makeAspectCrop(
       {
-        unit: '%',
-        width: 90,
+        unit: 'px',
+        width: 396,
       },
       aspect,
       mediaWidth,
@@ -44,6 +44,7 @@ export default function App() {
   const [scale, setScale] = useState(1)
   const [rotate, setRotate] = useState(0)
   const [aspect, setAspect] = useState<number | undefined>(16 / 9)
+
 
   function onSelectFile(e: React.ChangeEvent<HTMLInputElement>) {
     if (e.target.files && e.target.files.length > 0) {
@@ -83,6 +84,7 @@ export default function App() {
 
   useDebounceEffect(
     async () => {
+      console.log(previewCanvasRef.current)
       if (
         completedCrop?.width &&
         completedCrop?.height &&
@@ -108,8 +110,8 @@ export default function App() {
       setAspect(undefined)
     } else if (imgRef.current) {
       const { width, height } = imgRef.current
-      setAspect(16 / 9)
-      setCrop(centerAspectCrop(width, height, 16 / 9))
+      setAspect(33/48)
+      setCrop(centerAspectCrop(width, height, 33/48))
     }
   }
 

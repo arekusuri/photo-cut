@@ -23,6 +23,7 @@ export async function canvasPreview(
   // true to the images natural size.
   const pixelRatio = window.devicePixelRatio
   // const pixelRatio = 1
+  console.log(crop)
 
   canvas.width = Math.floor(crop.width * scaleX * pixelRatio)
   canvas.height = Math.floor(crop.height * scaleY * pixelRatio)
